@@ -141,6 +141,17 @@ func main() {
 }
 			</code></pre>
 		</figure>
+		<p>
+			Let's discuss this basic <em>hello world!</em> style <strong>Eino</strong> program.
+		</p>
+		<dl>
+			<dt><code>ChatModelAgent</code></dt>
+			<dd>
+				The <code>ChatModelAgent</code> (<code>struct</code>) type is probably <strong>Eino</strong>'s most important prebuilt component.
+				Even in this trivial <strong>Eino</strong> program <code>ChatModelAgent</code> is wired to run the classic ReAct (Reason → Act → Observe) loop internally.
+				If you later attach tools via <code>ToolsConfig</code>, the same agent decides when to call them and when to answer, with no extra orchestration code.
+			</dd>
+		</dl>
 	</section>
 	<footer>
 		<include src="author.html"></include>
