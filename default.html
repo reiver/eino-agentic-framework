@@ -145,11 +145,24 @@ func main() {
 			Let's discuss this basic <em>hello world!</em> style <strong>Eino</strong> program.
 		</p>
 		<dl>
-			<dt><code>ChatModelAgent</code></dt>
+			<dt><code>adk.ChatModelAgent</code></dt>
 			<dd>
-				The <code>ChatModelAgent</code> (<code>struct</code>) type is probably <strong>Eino</strong>'s most important prebuilt component.
-				Even in this trivial <strong>Eino</strong> program <code>ChatModelAgent</code> is wired to run the classic ReAct (Reason → Act → Observe) loop internally.
-				If you later attach tools via <code>ToolsConfig</code>, the same agent decides when to call them and when to answer, with no extra orchestration code.
+				<p>
+					The <code>ChatModelAgent</code> (<code>struct</code>) type is probably <strong>Eino</strong>'s most important prebuilt component.
+					Even in this trivial <strong>Eino</strong> program <code>ChatModelAgent</code> is wired to run the classic ReAct (Reason → Act → Observe) loop internally.
+					If you later attach tools via <code>ToolsConfig</code>, the same agent decides when to call them and when to answer, with no extra orchestration code.
+				</p>
+			</dd>
+
+			<dt><code>ask.Runner</code></dt>
+			<dd>
+				<p>
+					The <code>Runner</code> (struct) type is what you actually invoke.
+					It returns an iterator of events (rather than a single string).
+					This <em>iterator</em> <em>looping</em> style of coding is common with <strong>Eino</strong>.
+					It is the same interface whether the agent emits one message, a streams tokens, calls tools, or hands off to sub-agents.
+					It makes it so this consumption <em>iterator</em> <em>looping</em> doesn't change much as your agent grows in complexity.
+				</p>
 			</dd>
 		</dl>
 	</section>
