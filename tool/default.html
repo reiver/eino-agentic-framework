@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" vocab="https://schema.org/" typeof="TechArticle" class="article">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/text-readability/readmode.css" />
+<title>Tool (Eino Agentic Framework)</title>
+<meta name="author" content="Charles Iliya Krempeaux" />
+<meta name="category" content="agent tool" />
+<meta name="category" content="agentic computing" />
+<meta name="category" content="agentic tool" />
+<meta name="category" content="ai" />
+<meta name="category" content="artificial intelligence" />
+<meta name="category" content="eino" />
+<meta name="category" content="eino agentic framework" />
+<meta name="category" content="go programming language" />
+<meta name="category" content="golang" />
+<meta name="category" content="large languange model" />
+<meta name="category" content="llm" />
+<meta name="category" content="langchain" />
+<meta name="category" content="langgraph" />
+<meta name="category" content="agent tool" />
+</head>
+<body>
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+	<ol>
+		<li><a href="/">Home</a></li>
+		<li><a href="../">Eino Agentic Framework</a></li>
+		<li><a href="./" aria-current="page">Tool</a></li>
+	</ol>
+</nav>
+
+<main>
+<article>
+	<header>
+		<hgroup>
+			<h1 property="headline">Tool</h1>
+			<p>
+				a tool is what enables an agent to affect (to reach out and touch) the (physical or virtual) world
+			</p>
+		</hgroup>
+		<p>
+			by <a href="https://reiver.link/">Charles Iliya Krempeaux</a>
+		</p>
+	</header>
+	<p>
+		The <strong>Eino Agentic Framework</strong> has built-in support for <strong>agent tooling</strong>.
+	</p>
+	<p>
+		Some examples of <strong>agent tools</strong> includes:
+		######
+	</p>
+	<section>
+		<h1>Simple Example</h1>
+		<p>
+			Here is a very simple example of an <strong>agent tools</strong> in the <strong>Eino Agentic Framework</strong>: 
+		</p>
+		<figure>
+			<pre><code>
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+
+	"github.com/cloudwego/eino/components/tool"
+	"github.com/cloudwego/eino/components/tool/utils"
+)
+
+// CalculatorInput defines what the input theLLM needs to provide.
+//
+// Note that it also uses the "jsonschema_description" struct-tag.
+// Both Eino's utils.InferTool() and utils.GoStruct2ParamsOneOf() make use of it.
+type CalculatorInput struct {
+	NumberA float64 `json:"number_a" jsonschema_description:"The first number to add"`
+	NumberB float64 `json:"number_b" jsonschema_description:"The second number to add"`
+}
+
+func main() {
+	ctx := context.Background()
+
+	// 1. Define the core function logic
+	calcFunc := func(ctx context.Context, input *CalculatorInput) (string, error) {
+		result := input.NumberA + input.NumberB
+		return fmt.Sprintf("The result of adding %f and %f is %f", input.NumberA, input.NumberB, result), nil
+	}
+
+	// 2. Wrap it into an Eino tool using InferTool
+	//
+	// Note that myCalulatorTool is of type *tool.InvokableTool
+	myCalculatorTool, err := utils.InferTool(
+		"calculator",                                  // Tool name
+		"Adds two numbers together when requested.",   // Tool description for the LLM
+		calcFunc,                                      // The Go function
+	)
+	if nil != err {
+		fmt.Fprintf(os.Stderr, "ERROR: failed to infer Eino tool from function: %v\n", err)
+		os.Exit(1)
+	}
+
+	// Now myCalculatorTool fits the tool.BaseTool interface
+	// and can be directly registered to an Eino Agent or Graph.
+
+	//@TODO
+}
+			</code></pre>
+		</figure>
+	</section>
+	<footer>
+		<include src="author.html"></include>
+		<include src="license.html"></include>
+	</footer>
+</article>
