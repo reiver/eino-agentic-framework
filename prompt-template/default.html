@@ -51,6 +51,8 @@
 	</header>
 	<p>
 		The <strong>Eino Agentic Framework</strong> has built-in support for <strong>prompt templates</strong>.
+	</p>
+	<p>
 		<strong>Prompt Templates</strong> are also sometimes called:
 		<strong>custom prompt</strong>,
 		<strong>instruction templates</strong>,
@@ -63,6 +65,26 @@
 		<strong>prompt specs</strong>,
 		<strong>prompt specifications</strong>,
 		etc.
+	</p>
+	<p>
+		(<em>Claude Code</em> seems to call <strong>prompt templates</strong>: <strong>commands</strong>, and <strong>slash commands</strong>.)
+	</p>
+	<p>
+		In <strong>Eino</atrong>, <strong>prompt templates</strong> are represented with the <a href="https://pkg.go.dev/github.com/cloudwego/eino/components/prompt#ChatTemplate"><code>prompt.ChatTemplate</code></a> <code>interface</code>:
+	</p>
+	<figure>
+		<pre><code>
+package prompt
+
+// ...
+
+type ChatTemplate interface {
+	Format(ctx context.Context, vs map[string]any, opts ...Option) ([]*schema.Message, error)
+}
+		</code></pre>
+	</figure>
+	<p>
+		<strong>Eino</atrong>
 	</p>
 	<section>
 		<h1>Simple Example</h1>
