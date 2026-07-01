@@ -194,8 +194,19 @@ func main() {
 		</figure>
 		<p>
 			Note that this example does NOT give the (rendered) prompt to an <a href="/large-language-model//"><abbr title="large language model">LLM</abbr></a>.
-			It just <em>renders</em> the prompt — replacing the placeholders in the <strong>prompt template</strong> with actual values.
+			It just <em>renders</em> the prompt
+			—
+			replacing the placeholders in the <strong>prompt template</strong> with actual values
+			—
+			and then outputs the (rendered) prompt.
+			The actual output from this simple program would be:
 		</p>
+		<figure>
+			<samp>
+[system]: You are a helpful AI assistant specialized in Quantum Computing.
+[user]: Please give me a concise overview of Superposition and Entanglement.
+			</samp>
+		</figure>
 	</section>
 	<footer>
 		<include src="../author.html"></include>
