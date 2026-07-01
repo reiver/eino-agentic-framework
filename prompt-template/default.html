@@ -93,6 +93,30 @@ type ChatTemplate interface {
 		</p>
 		<figure>
 			<pre><code>
+import (
+	"github.com/cloudwego/eino/components/prompt"
+	"github.com/cloudwego/eino/schema"
+)
+
+// ...
+
+// prompt.FromMessages returns a *prompt.DefaultChatTemplate.
+//
+// *prompt.DefaultChatTemplate fits the prompt.ChatTemplate interface.
+template := prompt.FromMessages(
+	schema.FString,
+
+	// System Message which will set the agent's persona.
+	schema.SystemMessage("You are a helpful AI assistant specialized in {topic}."),
+
+	// THIS IS OPTIONAL.
+	//
+	// Placeholder for actual chat history if needed later.
+	// schema.MessagesPlaceholder("history", true),
+
+	// User Message with dynamic a injection.
+	schema.UserMessage("Please give me a concise overview of {task}."),
+)
 			</code></pre>
 		</figure>
 	</section>
