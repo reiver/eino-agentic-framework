@@ -89,7 +89,9 @@ type ChatTemplate interface {
 	<section>
 		<h1>Simple Example</h1>
 		<p>
-			Here is a very simple example of an <strong>prompt template</strong> in the <strong>Eino Agentic Framework</strong>:
+			Here is a very simple example of an <strong>prompt template</strong> in the <strong>Eino Agentic Framework</strong>.
+			(Note that this simple example uses "fstring" style templates.
+			<strong>Eino</strong> supports other styles of templates, too.)
 		</p>
 		<figure>
 			<pre><code>
@@ -103,7 +105,7 @@ import (
 // prompt.FromMessages returns a *prompt.DefaultChatTemplate.
 //
 // *prompt.DefaultChatTemplate fits the prompt.ChatTemplate interface.
-template := prompt.FromMessages(
+tmpl := prompt.FromMessages(
 	schema.FString,
 
 	// System Message which will set the agent's persona.
@@ -117,6 +119,76 @@ template := prompt.FromMessages(
 	// User Message with dynamic a injection.
 	schema.UserMessage("Please give me a concise overview of {task}."),
 )
+			</code></pre>
+		</figure>
+		<p>
+			In a more full example source-code, this might look like:
+		</p>
+		<figure>
+			<pre><code>
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+
+	"github.com/cloudwego/eino/components/prompt"
+	"github.com/cloudwego/eino/schema"
+)
+
+func main() {
+	ctx := context.Background()
+
+	// 1. Create a ChatTemplate using FString formatting.
+	// I.e.,  {variable} style.
+	//
+	// prompt.FromMessages returns a *prompt.DefaultChatTemplate.
+	//
+	// *prompt.DefaultChatTemplate fits the prompt.ChatTemplate interface.
+	tmpl := prompt.FromMessages(
+		schema.FString,
+
+		// System Message which will set the agent's persona.
+		schema.SystemMessage("You are a helpful AI assistant specialized in {topic}."),
+
+		// THIS IS OPTIONAL.
+		//
+		// Placeholder for actual chat history if needed later.
+		// schema.MessagesPlaceholder("history", true),
+
+		// User Message with dynamic a injection.
+		schema.UserMessage("Please give me a concise overview of {task}."),
+	)
+
+	// 2. Create the input variables.
+	//
+	// Notice that the keys of this map match the placeholders in the template:
+	//
+	//	• "task"  → {task}
+	//	• "topic" → {topic}
+	//
+	// I.e., the value of "topic" map key will get used for the "{topic}" placeholder,
+	// and the value of "task" map key will get used for the "{task}" placeholder,
+	variables := map[string]any{
+		"topic": "Quantum Computing",
+		"task":  "Superposition and Entanglement",
+	}
+
+	// 3. Render/Format the template into a standard list of schema.Messages.
+	//
+	// Eino deals with safely injecting these into the exact payload your ChatModel expects.
+	messages, err := template.Format(ctx, variables)
+	if nil != err {
+		fmt.Fprintf(os.Stderr, "ERROR: failed to render prompt template: %v\n", err)
+		os.Exit(1)
+	}
+
+	// 4. Print out the generated prompt messages.
+	for _, msg := range messages {
+		fmt.Printf("[%s]: %s\n", msg.Role, msg.Content)
+	}
+}
 			</code></pre>
 		</figure>
 	</section>
