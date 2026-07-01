@@ -72,8 +72,109 @@
 	<section>
 		<h1>What Is a Prompt Template</h1>
 		<p>
-			
+			You can think of a <strong>prompt template</strong> as a form.
+			But instead of writing something like this:
 		</p>
+		<figure>
+			<pre><code>
+Summarize the following article for a {audience} in {length}.
+
+Article:
+{article}
+			</code></pre>
+		</figure>
+		<p>
+			Here are some example <strong>prompt templates</strong>:
+		</p>
+		<section>
+			<h1>Example: Translation</h1>
+			<figure>
+				<pre><code>
+Translate the following text.
+
+Source language:
+{source}
+
+Target language:
+{target}
+
+Text:
+{text}
+				</code></pre>
+			</figure>
+		</section>
+		<section>
+			<h1>Agent Instructions}</h1>
+			<figure>
+				<pre><code>
+You are an assistant that helps with {domain}.
+
+Available tools:
+{tools}
+
+User request:
+{request}
+				</code></pre>
+			</figure>
+		</section>
+		<section>
+			<h1>Example: Writing an E-Mail Message Draft</h1>
+			<figure>
+				<pre><code>
+Write an e-mail.
+
+Tone:
+{tone}
+
+Recipient:
+{recipient}
+
+Purpose:
+{purpose}
+
+Important details:
+{details}
+				</code></pre>
+			</figure>
+		</section>
+		<section>
+			<h1>Example: SQL Query from Question in Plain English</h1>
+			<figure>
+				<pre><code>
+Generate a SQL query.
+
+Database:
+{database}
+
+Schema:
+{schema}
+
+Question:
+{question}
+				</code></pre>
+			</figure>
+		</section>
+		<section>
+			<h1>Example: Source Code Review</h1>
+			<figure>
+				<pre><code>
+Review this {language} code.
+
+Focus on:
+- bugs
+- missing error handling
+- performance
+- resource leaks
+- security problems
+- race conditions
+- unnecessary coupling
+
+Code:
+
+{code}
+				</code></pre>
+			</figure>
+		</section>
 	</section>
 	<section>
 		<h1>Prompt Template Styles</h1>
