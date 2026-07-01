@@ -69,11 +69,16 @@
 	<p>
 		(<em>Claude Code</em> seems to call <strong>prompt templates</strong>: <strong>commands</strong>, and <strong>slash commands</strong>.)
 	</p>
-	<p>
-		In <strong>Eino</strong>, <strong>prompt templates</strong> are represented with the <a href="https://pkg.go.dev/github.com/cloudwego/eino/components/prompt#ChatTemplate"><code>prompt.ChatTemplate</code></a> <code>interface</code>:
-	</p>
-	<figure>
-		<pre><code>
+	<section>
+		<h1>What Is a Prompt Template</h1>
+	</section>
+	<section>
+		<h1>Go Interface</h1>
+		<p>
+			In <strong>Eino</strong>, <strong>prompt templates</strong> are represented with the <a href="https://pkg.go.dev/github.com/cloudwego/eino/components/prompt#ChatTemplate"><code>prompt.ChatTemplate</code></a> <code>interface</code>:
+		</p>
+		<figure>
+			<pre><code>
 package prompt
 
 // ...
@@ -81,12 +86,33 @@ package prompt
 type ChatTemplate interface {
 	Format(ctx context.Context, vs map[string]any, opts ...Option) ([]*schema.Message, error)
 }
-		</code></pre>
-	</figure>
-	<p>
-		You can implement <strong>Eino</strong>'s <code>prompt.ChatTemplate</code> from scratch.
-		But, you can also use <strong>Eino</strong>'s <a href="https://pkg.go.dev/github.com/cloudwego/eino/components/prompt#FromMessages"><code>prompt.FromMessages</code></a> function to create one.
-	</p>
+			</code></pre>
+		</figure>
+		<p>
+			You can implement <strong>Eino</strong>'s <code>prompt.ChatTemplate</code> from scratch.
+			But, you can also use <strong>Eino</strong>'s <a href="https://pkg.go.dev/github.com/cloudwego/eino/components/prompt#FromMessages"><code>prompt.FromMessages</code></a> function to create one.
+		</p>
+		<p>
+			(There is an example of using <code>prompt.FromMessages</code> to create a <code>prompt.ChatTemplate</code> later in this article.)
+		</p>
+	</section>
+	<section>
+		<h1>Prompt Template Styles</h1>
+		<p>
+			<strong>Eino</strong> supports 3 different <strong>prompt template</strong> styles:
+		</p>
+		<ul>
+			<li>
+				FString
+			</li>
+			<li>
+				Go
+			</li>
+			<li>
+				Jinja2
+			</li>
+		</ul>
+	</section>
 	<section>
 		<h1>Simple Example</h1>
 		<p>
