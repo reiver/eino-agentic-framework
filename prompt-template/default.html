@@ -76,6 +76,74 @@
 		</p>
 	</section>
 	<section>
+		<h1>Prompt Template Styles</h1>
+		<p>
+			<strong>Eino</strong> supports 3 different <strong>prompt template</strong> styles:
+		</p>
+		<ul>
+			<li>
+				FString
+			</li>
+			<li>
+				Go Template
+			</li>
+			<li>
+				Jinja2
+			</li>
+		</ul>
+		<section>
+			<h1>FString Style Prompt Templates</h1>
+			<p>
+				<strong>FString</strong> style <strong>prompt templates</strong> have placeholders that look like this:
+			</p>
+			<figure>
+				<code>{variable}</code>
+			</figure>
+			<p>
+				For example:
+			</p>
+			<figure>
+				<pre><code>
+Hello {name}, how do you do?
+				</code></pre>
+			</figure>
+		</section>
+		<section>
+			<h1>Go Template Style Prompt Templates</h1>
+			<p>
+				<strong>Go Template</strong> style <strong>prompt templates</strong> have placeholders that look like this:
+			</p>
+			<figure>
+				<code>{{.variable}}</code>
+			</figure>
+			<p>
+				For example:
+			</p>
+			<figure>
+				<pre><code>
+Hello {{.name}}, how do you do?
+				</code></pre>
+			</figure>
+		</section>
+		<section>
+			<h1>Jinja2 Style Prompt Templates</h1>
+			<p>
+				<strong>Jinja2</strong> style <strong>prompt templates</strong> have placeholders that look like this:
+			</p>
+			<figure>
+				<code>{{ variable }}</code>
+			</figure>
+			<p>
+				For example:
+			</p>
+			<figure>
+				<pre><code>
+Hello {{ name }}, how do you do?
+				</code></pre>
+			</figure>
+		</section>
+	</section>
+	<section>
 		<h1>Go Packages</h1>
 		<p>
 			There are 2 <strong>Eino</strong> <abbr title="Go programming language">golang</abbr> packages that are used when creating <strong>Eino</strong> <strong>prompt templates</strong>:
@@ -115,23 +183,6 @@ type ChatTemplate interface {
 		<p>
 			(There is an example of using <code>prompt.FromMessages</code> to create a <code>prompt.ChatTemplate</code> later in this article.)
 		</p>
-	</section>
-	<section>
-		<h1>Prompt Template Styles</h1>
-		<p>
-			<strong>Eino</strong> supports 3 different <strong>prompt template</strong> styles:
-		</p>
-		<ul>
-			<li>
-				FString
-			</li>
-			<li>
-				Go Template
-			</li>
-			<li>
-				Jinja2
-			</li>
-		</ul>
 	</section>
 	<section>
 		<h1>Simple Example</h1>
