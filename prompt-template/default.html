@@ -300,14 +300,34 @@ Hello {{ name }}, how do you do?
 		<p>
 			There are 2 <strong>Eino</strong> <abbr title="Go programming language">golang</abbr> packages that are used when creating <strong>Eino</strong> <strong>prompt templates</strong>:
 		</p>
-		<ul>
-			<li>
+		<dl>
+			<dt>
 				<code>import <a href="https://pkg.go.dev/github.com/cloudwego/eino/components/prompt">"github.com/cloudwego/eino/components/prompt"</a></code>
-			</li>
-			<li>
+			</dt>
+			<dd>
+				<p>
+					Used for creating <em>prompt templates</em> and formatting:
+				</p>
+				<ul>
+					<li>
+						<a href="https://pkg.go.dev/github.com/cloudwego/eino/components/prompt#ChatTemplate"><code>prompt.ChatTemplate</code></a>
+					</li>
+					<li>
+						<a href="https://pkg.go.dev/github.com/cloudwego/eino/components/prompt#FromMessages"><code>prompt.FromMessages()</code></a>
+					</li>
+				</ul>
+			</dd>
+
+
+			<dt>
 				<code>import <a href="https://pkg.go.dev/github.com/cloudwego/eino/schema">"github.com/cloudwego/eino/schema"</a></code>
-			</li>
-		</ul>
+			</dt>
+			<dd>
+				<p>
+					Used for format constants and types:
+				</p>
+			</dd>
+		</dl>
 	</section>
 	<section>
 		<h1>Go Interface</h1>
