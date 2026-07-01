@@ -119,6 +119,79 @@
 		</p>
 	</section>
 	<section>
+		<h1>Orchestration</h1>
+		<p>
+			<strong>Eino</strong> supports multiple orchestration styles.
+		</p>
+		<section>
+			<h1>Linear (Chain) Orchestration</h1>
+			<p>
+				<strong>Eino</strong> supports the <strong>chain</strong> / <strong>linear</strong> style of <em>orchestration</em>.
+			</p>
+			<figure>
+				<pre>
+  Input
+    ↓
+Retriever
+    ↓
+   LLM
+    ↓
+  Parser
+				</pre>
+			</figure>
+			<p>
+				This type of (<strong>chain</strong> / <strong>linear</strong>) <em>orchestration</em> (in <strong>Eino</strong>) can be good for:
+			</p>
+			<ul>
+				<li>
+					Classification
+				</li>
+				<li>
+					<abbr title="retrieval-augmented generation">RAG</abbr>
+				</li>
+				<li>
+					Summarization
+				</li>
+			</ul>
+		</section>
+		<section>
+			<h1>Directed Graph Orchestration</h1>
+			<p>
+				<strong>Eino</strong> also supports the <strong>directed graph</strong> style of <em>orchestration</em>.
+			</p>
+			<figure>
+				<pre>
+        Tool A
+      ↗
+Input
+      ↘
+        Tool B
+          ↓
+       Decision
+          ↓
+        Output
+			</pre>
+			</figure>
+			<p>
+				This type of (<strong>directed graph</strong>) <em>orchestration</em> (in <strong>Eino</strong>) can be good for:
+			</p>
+			<ul>
+				<li>
+					conditional routing
+				</li>
+				<li>
+					retries
+				</li>
+				<li>
+					loops
+				</li>
+				<li>
+					branching logic
+				</li>
+			</ul>
+		</section>
+	</section>
+	<section>
 		<h1>Hello World!</h1>
 		<p>
 			A basic program using <strong>Eino</strong> looks like the following:
