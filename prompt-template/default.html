@@ -71,6 +71,23 @@
 	</p>
 	<section>
 		<h1>What Is a Prompt Template</h1>
+		<p>
+			
+		</p>
+	</section>
+	<section>
+		<h1>Go Packages</h1>
+		<p>
+			There are 2 <strong>Eino</strong> <abbr title="Go programming language">golang</abbr> packages that are used when creating <strong>Eino</strong> <strong>prompt templates</strong>:
+		</p>
+		<ul>
+			<li>
+				<code>import <a href="https://pkg.go.dev/github.com/cloudwego/eino/components/prompt">"github.com/cloudwego/eino/components/prompt"</a></code>
+			</li>
+			<li>
+				<code>import <a href="https://pkg.go.dev/github.com/cloudwego/eino/schema">"github.com/cloudwego/eino/schema"</a></code>
+			</li>
+		</ul>
 	</section>
 	<section>
 		<h1>Go Interface</h1>
@@ -88,6 +105,9 @@ type ChatTemplate interface {
 }
 			</code></pre>
 		</figure>
+	</section>
+	<section>
+		<h1>Go Helpers</h1>
 		<p>
 			You can implement <strong>Eino</strong>'s <code>prompt.ChatTemplate</code> from scratch.
 			But, you can also use <strong>Eino</strong>'s <a href="https://pkg.go.dev/github.com/cloudwego/eino/components/prompt#FromMessages"><code>prompt.FromMessages</code></a> function to create one.
@@ -106,7 +126,7 @@ type ChatTemplate interface {
 				FString
 			</li>
 			<li>
-				Go
+				Go Template
 			</li>
 			<li>
 				Jinja2
