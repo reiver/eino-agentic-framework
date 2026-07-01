@@ -80,17 +80,51 @@
 		<p>
 			<strong>Eino</strong> supports 3 different <strong>prompt template</strong> styles:
 		</p>
-		<ul>
-			<li>
+		<dl>
+			<dt>
 				FString
-			</li>
-			<li>
+			</dt>
+			<dd>
+				<ul>
+					<li>
+						Python style syntax
+					</li>
+					<li>
+						Same syntax as Python f-string
+					</li>
+				</ul>
+			</dd>
+
+
+			<dt>
 				Go Template
-			</li>
-			<li>
+			</dt>
+			<dd>
+				<ul>
+					<li>
+						Native Go style syntax
+					</li>
+					<li>
+						Same syntax as Go's <code>"text/template"</code> and <code>"html/template"</code> packages
+					</li>
+				</ul>
+			</dd>
+
+
+			<dt>
 				Jinja2
-			</li>
-		</ul>
+			</dt>
+			<dd>
+				<ul>
+					<li>
+						Jinja2 Python style syntax
+					</li>
+					<li>
+						Same syntax as Jinja2 Python templating engine
+					</li>
+				</ul>
+			</dd>
+		</dl>
 		<p>
 			If you are not sure whether you should use <em>FString</em>, <em>Go Template</em>, or <em>Jinja2</em> style <strong>prompt templates</strong>
 			—
