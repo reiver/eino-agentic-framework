@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" vocab="https://schema.org/" typeof="TechArticle" class="article">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/text-readability/readmode.css" />
+<title>RAG Reranking (Eino Agentic Framework)</title>
+<meta name="author" content="Charles Iliya Krempeaux" />
+<meta name="category" content="agent tool" />
+<meta name="category" content="agentic computing" />
+<meta name="category" content="ai" />
+<meta name="category" content="artificial intelligence" />
+<meta name="category" content="eino" />
+<meta name="category" content="eino agentic framework" />
+<meta name="category" content="go programming language" />
+<meta name="category" content="golang" />
+<meta name="category" content="large languange model" />
+<meta name="category" content="llm" />
+<meta name="category" content="rag" />
+<meta name="category" content="reranking" />
+<meta name="category" content="retrieval augmented generation" />
+</head>
+<body>
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+	<ol>
+		<li><a href="/">Home</a></li>
+		<li><a href="../../">Eino Agentic Framework</a></li>
+		<li><a href="../">Retrieval Augmented Generation (<abbr title="retrieval augmented generation">RAG</abbr>)</a></li>
+		<li><a href="./" aria-current="page">Reranking</a></li>
+	</ol>
+</nav>
+
+<main>
+<article>
+	<header>
+		<hgroup>
+			<h1 property="headline"><abbr title="retrieval augmented generation">RAG</abbr> Reranking</h1>
+			<p>
+				<code>document.Transformer</code>
+				<code>score.NewReranker</code>
+			</p>
+		</hgroup>
+		<p>
+			by <a href="https://reiver.link/">Charles Iliya Krempeaux</a>
+		</p>
+	</header>
+	<p>
+		<strong>Retrieval-Augmented Generation</strong> (<abbr title="retrieval-augmented generation">RAG</abbr>) is a multi-step process.
+		Two steps in <abbr title="retrieval-augmented generation">RAG</abbr> are:
+	</p>
+	<ol>
+		<li>
+			retrieval
+		</li>
+		<li>
+			reranking
+		</li>
+	</ol>
+	<p>
+		You can see how <strong>retrieval</strong> and <strong>reranking</strong> fit together in the <abbr title="retrieval-augmented generation">RAG</abbr> pipeline in the following figure:
+	</p>
+	<figure>
+		<pre>
+  user prompt
+       ↓
+embedding model
+       ↓
+ vector search (retrieval)
+       ↓
+top 50 documents
+       ↓
+   reranking
+       ↓
+ top 5 documents
+       ↓
+      LLM
+    		</pre>
+	</figure>
+	<p>
+		With <strong>Retrieval-Augmented Generation</strong> (<abbr title="retrieval-augmented generation">RAG</abbr>), <strong>reranking</strong> is an important <em>next step</em> to be done after <abbr title="retrieval-augmented generation">RAG</abbr> retrieval.
+		<abbr title="retrieval-augmented generation">RAG</abbr> <strong>reranking</strong> is an <abbr title="artificial intelligence">AI</abbr> technique that improves the results returned from a <strong>Retrieval-Augmented Generation</strong> (<abbr title="retrieval-augmented generation">RAG</abbr>) retrieval.
+	</p>
+	<p>
+		The <abbr title="retrieval-augmented generation">RAG</abbr> retrieval step tends to be a quick.
+		It uses <strong>bi-encoders</strong> to do <strong>vector search</strong>.
+		This step might return 50 to 100 documents.
+		The advatange is that it is fast.
+		The disadvantage is that it misses the nuance of the prompt.
+		So, for example, it doesn't really understand which of those documents are the best match with the prompt.
+		(The best matches with the vector embedding are often <strong>not</strong> the best matches with the prompt.)
+	</p>
+	<p>
+		Where the <abbr title="retrieval-augmented generation">RAG</abbr> retrieval step is quick, the <abbr title="retrieval-augmented generation">RAG</abbr> reranking step can be slow.
+		It uses <strong>cross-encoders</strong> to reorder the (for example) 50 to 100 documents returned from the <abbr title="retrieval-augmented generation">RAG</abbr> retrieval step.
+		It (usually) looks at both the document and the prompt together (rather than just looking at vector embeddings).
+		The advantage is that it orders the documents (in terms of best match) by paying attention to the prompt, rather than just the vector embedding of the prompt.
+		The disadvantage is that it is slow, but since we are running it on (for example) only 50 to 100 documents (rather than millions of documents) it is practical to do.
+	</p>
+	<ul>
+		<li>
+			<abbr title="retrieval-augmented generation">RAG</abbr> <strong>retrieval</strong> maximizes <strong>recall</strong>. (I.e., don't miss relevant documents).
+		</li>
+		<li>
+			<abbr title="retrieval-augmented generation">RAG</abbr> <strong>reranking</strong> maximizes <strong>precision</storong>. (I.e., it puts the best documents first).
+		</li>
+	</ul>
+	<p>
+		With the <strong>Eino Agentic Framework</strong>, this is done with:
+	</p>
+	<ul>
+		<li>
+			the <strong>Eino</strong> <a href="https://pkg.go.dev/github.com/cloudwego/eino/components/retriever#Retriever"><code>retriever.Retriever</code></a> interface
+		</li>
+		<li>
+			the <strong>Eino</strong> <a href="https://pkg.go.dev/github.com/cloudwego/eino@v0.9.12/components/document#Transformer">document.Transformer</a> inteface
+		</li>
+		<li>
+			the <strong>Eino</strong> <a href="https://pkg.go.dev/github.com/cloudwego/eino-ext/components/document/transformer/reranker/score#NewReranker">score.NewReranker()</a> func
+		</li>
+	</ul>
+	<footer>
+		<include src="../../author.html"></include>
+		<include src="../../license.html"></include>
+	</footer>
+</article>
