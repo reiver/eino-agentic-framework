@@ -72,12 +72,16 @@ top 50 documents
        ↓
  top 5 documents
        ↓
-      LLM
+      <abbr title="large language model">LLM</abbr>
     		</pre>
 	</figure>
 	<p>
-		With <strong>Retrieval-Augmented Generation</strong> (<abbr title="retrieval-augmented generation">RAG</abbr>), <strong>reranking</strong> is an important <em>next step</em> to be done after <abbr title="retrieval-augmented generation">RAG</abbr> retrieval.
-		<abbr title="retrieval-augmented generation">RAG</abbr> <strong>reranking</strong> is an <abbr title="artificial intelligence">AI</abbr> technique that improves the results returned from a <strong>Retrieval-Augmented Generation</strong> (<abbr title="retrieval-augmented generation">RAG</abbr>) retrieval.
+		<abbr title="retrieval-augmented generation">RAG</abbr> retrieval returns a lot of document.
+		Much more than we typically want to give to the <abbr title="large language model">LLM</abbr>.
+		It might give us (for example) 50 documents.
+		But, we just want (for example) the best 5 documents (in terms of being relevant to the prompt).
+		But at this point (before we do <abbr title="retrieval-augmented generation">RAG</abbr> reranking) we don't know which of the 50 documents are the best 5 documents.
+		<abbr title="retrieval-augmented generation">RAG</abbr> reranking tells which (for example) which of the 50 documents (returned from the <abbr title="retrieval-augmented generation">RAG</abbr> retrieval) are the best 5 documents (in terms of being relevant to the prompt).
 	</p>
 	<p>
 		The <abbr title="retrieval-augmented generation">RAG</abbr> retrieval step tends to be a quick.
@@ -100,7 +104,7 @@ top 50 documents
 			<abbr title="retrieval-augmented generation">RAG</abbr> <strong>retrieval</strong> maximizes <strong>recall</strong>. (I.e., don't miss relevant documents).
 		</li>
 		<li>
-			<abbr title="retrieval-augmented generation">RAG</abbr> <strong>reranking</strong> maximizes <strong>precision</storong>. (I.e., it puts the best documents first).
+			<abbr title="retrieval-augmented generation">RAG</abbr> <strong>reranking</strong> maximizes <strong>precision</storng>. (I.e., it puts the best documents first).
 		</li>
 	</ul>
 	<p>
