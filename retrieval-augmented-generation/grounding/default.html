@@ -100,6 +100,35 @@
 
 
 			<dt>Post-Generation Verification</dt>
+			<dd>
+				<p>
+					This is where the <abbr title="retrieval augmented generation">RAG</abbr> pipeline uses a smaller, faster model or algorithm to evaluate the out the <abbr title="large language model">LLM</abbr> generated before showing it to the user.
+					Specifically:
+				</p>
+				<dl>
+					<dt>faithfulness</dt>
+					<dd>
+						<p>
+							Is the <abbr title="large language model">LLM</abbr>'s answer based on the documents/chunks given to it in the context?
+							(I.e., no hallucinations.)
+						</p>
+					</dd>
+
+					<dt>answer relevance</dt>
+					<dd>
+						<p>
+							Does the <abbr title="large language model">LLM</abbr>'s response actually answer the user's initial question?
+						</p>
+					</dd>
+
+					<dt>context relevance</dt>
+					<dd>
+						<p>
+							Was the retrieved context actually useful for answering the question?
+						</p>
+					</dd>
+				</dl>
+			</dd>
 		</dl>
 	</section>
 	<footer>
