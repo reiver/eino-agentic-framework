@@ -99,12 +99,21 @@ top 50 documents
 		The advantage is that it orders the documents (in terms of best match) by paying attention to the prompt, rather than just the vector embedding of the prompt.
 		The disadvantage is that it is slow, but since we are running it on (for example) only 50 to 100 documents (rather than millions of documents) it is practical to do.
 	</p>
+	<p>
+		You can maybe understand <abbr title="retrieval-augmented generation">RAG</abbr> <strong>retrieval</strong> versus <abbr title="retrieval-augmented generation">RAG</abbr> <strong>reranking</strong> in terms of <strong>recall versus precision</strong>:
+	</p>
 	<ul>
 		<li>
-			<abbr title="retrieval-augmented generation">RAG</abbr> <strong>retrieval</strong> maximizes <strong>recall</strong>. (I.e., don't miss relevant documents).
+			<abbr title="retrieval-augmented generation">RAG</abbr> <strong>retrieval</strong> maximizes <strong>recall</strong>
+			—
+			the ability to find all positive cases.
+			(I.e., don't miss relevant documents).
 		</li>
 		<li>
-			<abbr title="retrieval-augmented generation">RAG</abbr> <strong>reranking</strong> maximizes <strong>precision</storng>. (I.e., it puts the best documents first).
+			<abbr title="retrieval-augmented generation">RAG</abbr> <strong>reranking</strong> maximizes <strong>precision</storng>
+			—
+			how accurate the model is.
+			(I.e., it puts the best documents first).
 		</li>
 	</ul>
 	<p>
