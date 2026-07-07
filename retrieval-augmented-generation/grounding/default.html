@@ -66,6 +66,22 @@
 					Selecting documents/chunks that are relevant but not redundant (with some other document/chunk already selected).
 				</p>
 			</dd>
+
+			<dt>Grounding Prompt (Guardrail)</dt>
+			<dd>
+				<p>
+					You write the prompt in such a way to try to make the <abbr title="large language model">LLM</abbr> draw an answer from the provided information.
+					For example:
+				</p>
+				<blokquote>
+					<p>
+						You are a helpful assistant.
+						Answer the user's question only using the provided context below.
+						If the answer cannot be found in the context, say "I do not know.".
+						Do not make up information.
+					</p>
+				</blokquote>
+			</dd>
 		</dl>
 	</section>
 	<footer>
