@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" vocab="https://schema.org/" typeof="TechArticle" class="article">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/text-readability/readmode.css" />
+<title>RAG Reranking (Eino Agentic Framework)</title>
+<meta name="author" content="Charles Iliya Krempeaux" />
+<meta name="category" content="agent tool" />
+<meta name="category" content="agentic computing" />
+<meta name="category" content="ai" />
+<meta name="category" content="artificial intelligence" />
+<meta name="category" content="eino" />
+<meta name="category" content="eino agentic framework" />
+<meta name="category" content="go programming language" />
+<meta name="category" content="golang" />
+<meta name="category" content="grounding" />
+<meta name="category" content="large languange model" />
+<meta name="category" content="llm" />
+<meta name="category" content="rag" />
+<meta name="category" content="retrieval augmented generation" />
+</head>
+<body>
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+	<ol>
+		<li><a href="/">Home</a></li>
+		<li><a href="../../">Eino Agentic Framework</a></li>
+		<li><a href="../">Retrieval Augmented Generation (<abbr title="retrieval augmented generation">RAG</abbr>)</a></li>
+		<li><a href="./" aria-current="page">Grounding</a></li>
+	</ol>
+</nav>
+
+<main>
+<article>
+	<header>
+		<hgroup>
+			<h1 property="headline"><abbr title="retrieval augmented generation">RAG</abbr> Grounding</h1>
+			<p>
+				reduce hallucinations
+			</p>
+		</hgroup>
+		<p>
+			by <a href="https://reiver.link/">Charles Iliya Krempeaux</a>
+		</p>
+	</header>
+	<p>
+		<abbr title="retrieval-augmented generation">RAG</abbr> <strong>grounding</strong> is he process of forcing a <a href="/large-language-model/">Large Language Model</a> (<abbr title="large language model">LLM</abbr>) to anchor its response strictly in the retrieved source documents, rather than relying on its pre-trained internal knowledge.
+		It helps prevent hallucinations and ensure accuracy.
+	</p>
+	<section>
+		<h1>Grounding Strategies</h1>
+		<p>
+			Here are some <strong>grounding</strong> strategies:
+		</p>
+		<dl>
+			<dt>Score Thresholding</dt>
+			<dd>
+				<p>
+					Filtering out documents that fall below some relevance score.
+				</p>
+			</dd>
+
+
+			<dt>Maximal Marginal Relevance (<abbr title="Maximal Marginal Relevance">MMR</abbr>)</dt>
+			<dd>
+				<p>
+					Selecting documents/chunks that are relevant but not redundant (with some other document/chunk already selected).
+				</p>
+			</dd>
+		</dl>
+	</section>
+	<footer>
+		<include src="../../author.html"></include>
+		<include src="../../license.html"></include>
+	</footer>
+</article>
